@@ -1,7 +1,7 @@
 import { existsSync, mkdirSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import type { AgentMessage } from "@earendil-works/pi-agent-core";
+import type { AgentMessage } from "@iris/pi-agent-core";
 import { afterEach } from "vitest";
 import { InMemorySessionRepository } from "../../src/harness/session/memory-repo.ts";
 import type { Session } from "../../src/harness/session/session.ts";

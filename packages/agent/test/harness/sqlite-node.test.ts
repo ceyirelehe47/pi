@@ -1,5 +1,5 @@
 import { join } from "node:path";
-import { createModels, type FauxProviderHandle, fauxProvider } from "@earendil-works/pi-ai";
+import { createModels, type FauxProviderHandle, fauxProvider } from "@iris/pi-ai";
 import { afterEach, describe, expect, it } from "vitest";
 import {
 	createNodeSqliteFactory,

@@ -5,8 +5,8 @@ import type {
 	SessionEntryCursorOptions,
 	SessionStats,
 	SessionTreeEntry,
-} from "@earendil-works/pi-agent-core";
-import { SessionError, toError } from "@earendil-works/pi-agent-core";
+} from "@iris/pi-agent-core";
+import { SessionError, toError } from "@iris/pi-agent-core";
 import type { SqliteDatabase, SqliteSessionMetadata } from "../types.ts";
 import {
 	appendEntryToBranchCache,

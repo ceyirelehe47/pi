@@ -1,4 +1,4 @@
-import { uuidv7 } from "@earendil-works/pi-ai";
+import { uuidv7 } from "@iris/pi-ai";
 import type { SqliteDatabase } from "../types.ts";
 import type { SessionEntryRow } from "./session-entries.ts";
 import { invalidSession } from "./shared.ts";

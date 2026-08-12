@@ -5,7 +5,7 @@ import type {
 	SessionRepository,
 	SessionStorage,
 	SessionTreeEntry,
-} from "@earendil-works/pi-agent-core";
+} from "@iris/pi-agent-core";
 import {
 	createSession,
 	createSessionForkSelection,
@@ -15,7 +15,7 @@ import {
 	type Session,
 	type SessionContextBuildOptions,
 	SessionError,
-} from "@earendil-works/pi-agent-core";
+} from "@iris/pi-agent-core";
 import { applyMigrations } from "./migrations.ts";
 import { SqliteSessionConnection } from "./storage/index.ts";
 import { rowToMetadata, type SessionRow } from "./storage/sessions.ts";

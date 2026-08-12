@@ -5,7 +5,7 @@ import {
 	fauxProvider,
 	fauxToolCall,
 	type StreamOptions,
-} from "@earendil-works/pi-ai";
+} from "@iris/pi-ai";
 import { describe, expect, it } from "vitest";
 import { AgentHarness } from "../../src/harness/agent-harness.ts";
 import type { AgentHarnessOptions } from "../../src/harness/types.ts";

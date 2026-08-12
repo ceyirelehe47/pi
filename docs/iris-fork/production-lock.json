@@ -15,8 +15,8 @@
 	},
 	"upstream": {
 		"repository": "earendil-works/pi",
-		"baseCommit": "e741cb05ca7c1c7bc5a9664c99697df32de9fac6",
-		"verifiedAt": "2026-08-04"
+		"baseCommit": "9795d602306ef68a97585909e8e79f92a389057b",
+		"verifiedAt": "2026-08-13"
 	},
 	"runtime": {
 		"node": ">=22.19.0",
@@ -24,13 +24,13 @@
 		"lockfile": "package-lock.json"
 	},
 	"distribution": {
-		"packageIdentityStatus": "inherits_upstream_package_names",
-		"publishStatus": "not_published"
+		"packageIdentityStatus": "independent_package_identity",
+		"publishStatus": "ready_for_fork_release"
 	},
 	"dependencyDirection": "upstream_only",
 	"sync": {
 		"strategy": "manual_review_gate",
-		"lastVerifiedUpstreamCommit": "e741cb05ca7c1c7bc5a9664c99697df32de9fac6",
-		"lastVerifiedAt": "2026-08-04"
+		"lastVerifiedUpstreamCommit": "9795d602306ef68a97585909e8e79f92a389057b",
+		"lastVerifiedAt": "2026-08-13"
 	}
 }

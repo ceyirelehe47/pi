@@ -36,8 +36,8 @@ export const SUPPORTED_SCHEMA_VERSION = 2;
 
 export const FORK_REPOSITORY = "blueforst/pi";
 export const UPSTREAM_REPOSITORY = "earendil-works/pi";
-export const PACKAGE_IDENTITY_STATUSES = ["inherits_upstream_package_names", "independent_identity"];
-export const PUBLISH_STATUSES = ["not_published", "publish_forbidden"];
+export const PACKAGE_IDENTITY_STATUSES = ["inherits_upstream_package_names", "independent_identity", "independent_package_identity"];
+export const PUBLISH_STATUSES = ["not_published", "publish_forbidden", "ready_for_fork_release"];
 export const DEPENDENCY_DIRECTIONS = ["upstream_only"];
 export const SYNC_STRATEGIES = ["manual_review_gate"];
 export const PATCH_STATUSES = ["proposed", "carried", "upstreamed", "removable", "removed"];

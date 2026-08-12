@@ -6,13 +6,13 @@ import { isAbsolute, join, relative, resolve } from "node:path";
 import { spawnSync } from "node:child_process";
 
 const packages = [
-	{ directory: "packages/ai", name: "@earendil-works/pi-ai" },
-	{ directory: "packages/tui", name: "@earendil-works/pi-tui" },
-	{ directory: "packages/agent", name: "@earendil-works/pi-agent-core" },
-	{ directory: "packages/protocol", name: "@earendil-works/pi-protocol" },
-	{ directory: "packages/client", name: "@earendil-works/pi-client" },
-	{ directory: "packages/storage/sqlite-node", name: "@earendil-works/pi-storage-sqlite-node" },
-	{ directory: "packages/coding-agent", name: "@earendil-works/pi-coding-agent" },
+	{ directory: "packages/ai", name: "@iris/pi-ai" },
+	{ directory: "packages/tui", name: "@iris/pi-tui" },
+	{ directory: "packages/agent", name: "@iris/pi-agent-core" },
+	{ directory: "packages/protocol", name: "@iris/pi-protocol" },
+	{ directory: "packages/client", name: "@iris/pi-client" },
+	{ directory: "packages/storage/sqlite-node", name: "@iris/pi-storage-sqlite-node" },
+	{ directory: "packages/coding-agent", name: "@iris/pi-coding-agent" },
 ];
 
 function printUsage() {

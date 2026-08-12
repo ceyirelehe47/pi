@@ -8,7 +8,7 @@ import {
 	type ResponseEnvelope,
 	type ServerMessage,
 	ServerMessageDecoder,
-} from "@earendil-works/pi-protocol";
+} from "@iris/pi-protocol";
 import { Deferred } from "./backend.ts";
 
 interface MessageWaiter {

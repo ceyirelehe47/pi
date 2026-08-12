@@ -4,7 +4,7 @@ import {
 	PROTOCOL_VERSION,
 	type ServerSnapshot,
 	type SessionSummary,
-} from "@earendil-works/pi-protocol";
+} from "@iris/pi-protocol";
 import type { ConnectionState } from "./connection.ts";
 import type { PiSessionBackend } from "./types.ts";
 

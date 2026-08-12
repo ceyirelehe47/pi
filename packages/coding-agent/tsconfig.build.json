@@ -3,14 +3,14 @@
 	"compilerOptions": {
 		"outDir": "./dist",
 		"paths": {
-			"@earendil-works/pi-agent-core": ["../agent/dist/index.d.ts"],
-			"@earendil-works/pi-agent-core/*": ["../agent/dist/*.d.ts"],
-			"@earendil-works/pi-ai": ["../ai/dist/index.d.ts"],
-			"@earendil-works/pi-ai/*": ["../ai/dist/*.d.ts", "../ai/dist/providers/*.d.ts"],
-			"@earendil-works/pi-client": ["../client/dist/index.d.ts"],
-			"@earendil-works/pi-protocol": ["../protocol/dist/index.d.ts"],
-			"@earendil-works/pi-tui": ["../tui/dist/index.d.ts"],
-			"@earendil-works/pi-tui/*": ["../tui/dist/*.d.ts", "../tui/dist/components/*.d.ts"]
+			"@iris/pi-agent-core": ["../agent/dist/index.d.ts"],
+			"@iris/pi-agent-core/*": ["../agent/dist/*.d.ts"],
+			"@iris/pi-ai": ["../ai/dist/index.d.ts"],
+			"@iris/pi-ai/*": ["../ai/dist/*.d.ts", "../ai/dist/providers/*.d.ts"],
+			"@iris/pi-client": ["../client/dist/index.d.ts"],
+			"@iris/pi-protocol": ["../protocol/dist/index.d.ts"],
+			"@iris/pi-tui": ["../tui/dist/index.d.ts"],
+			"@iris/pi-tui/*": ["../tui/dist/*.d.ts", "../tui/dist/components/*.d.ts"]
 		},
 		"rootDir": "./src"
 	},

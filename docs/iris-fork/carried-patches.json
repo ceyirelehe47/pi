@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 2,
-	"upstreamBaseCommit": "e741cb05ca7c1c7bc5a9664c99697df32de9fac6",
+	"upstreamBaseCommit": "9795d602306ef68a97585909e8e79f92a389057b",
 	"patches": [
 		{
 			"id": "PI-015-provider-context-controller",
@@ -10,7 +10,7 @@
 			"latestForkCommit": "e65e26bd2893895941ecf130e6c5a731b43e2b4b",
 			"genericRuntimeRationale": "Any agent runtime consumer needs to decide systemPrompt/messages/tools completely before provider conversion without forcing Session.buildContext() (e.g. identity-level Context engines that do not derive messages from the Session archive). The default native Session-derived path is unchanged and byte-compatible when the controller is absent.",
 			"affectedPackages": [
-				"@earendil-works/pi-agent-core"
+				"@iris/pi-agent-core"
 			],
 			"affectedSurfaces": [
 				"AgentHarness options",
@@ -38,7 +38,7 @@
 			"latestForkCommit": "66a3ea14616a438f47d3121979c0581c22ea64bb",
 			"genericRuntimeRationale": "Consumers of the Session archive need awaited, durable commit evidence (sessionId, entryId, content hash, optional entrySeq) to attribute messages exactly once and to reconcile crash windows; observer-only events cannot prove durability. Receipts are carried on the new message_finalized lifecycle event; the Session append API itself keeps its existing return contract. iris_agent#40 consolidates every supported append path (agent loop, direct appendMessage, pending-writes flush) onto one shared appendAndCommitMessage primitive so no valid durable append can bypass commit evidence.",
 			"affectedPackages": [
-				"@earendil-works/pi-agent-core"
+				"@iris/pi-agent-core"
 			],
 			"affectedSurfaces": [
 				"SessionCommitReceipt type",
@@ -75,7 +75,7 @@
 			"latestForkCommit": "e65e26bd2893895941ecf130e6c5a731b43e2b4b",
 			"genericRuntimeRationale": "A generic agent runtime needs stable lifecycle events distinguishing message finalization, tool execution commit and turn commit from observer-level stream updates, so consumers can order user/tool/assistant boundaries and prove exactly-once attribution without scanning the Session archive.",
 			"affectedPackages": [
-				"@earendil-works/pi-agent-core"
+				"@iris/pi-agent-core"
 			],
 			"affectedSurfaces": [
 				"AgentHarnessOwnEvent union",
@@ -102,7 +102,7 @@
 			"status": "carried",
 			"genericRuntimeRationale": "Any runtime consumer that needs reproducible builds and typed model catalogs (e.g. identity-level Context engines that pin the accepted runtime) must not have normal build/check/test depend on mutable third-party model catalogs (models.dev, NVIDIA NIM, OpenRouter, Vercel AI Gateway). The fork commits the content-addressed model snapshot (per-file sha256 + structureHash + source provenance) and regenerates TypeScript shards/aggregator offline from it; live refresh is an explicit, separately reviewed command. Tests no longer reference transient catalog member IDs.",
 			"affectedPackages": [
-				"@earendil-works/pi-ai"
+				"@iris/pi-ai"
 			],
 			"affectedSurfaces": [
 				"npm run build / build:offline (packages/ai)",
@@ -139,8 +139,8 @@
 			"latestForkCommit": "18d059bfdfcc64f75f9974ac8b15a512b2cd8d5c",
 			"genericRuntimeRationale": "Any runtime consumer that attributes committed messages exactly once needs the durable append and the receipt to survive a crash between the append and the lifecycle publication. A generic commit journal (optional SessionStorage appendEntryWithReceipt recording the entry and its pending receipt atomically, readPendingCommitReceipts, ackCommitReceipt) lets a restarting harness replay missed message_finalized events without re-appending (no duplicate semantic commit) and with stable receipt identity (sessionId + entryId + contentHash). No Iris Context/Historian/Memory semantics enter Pi.",
 			"affectedPackages": [
-				"@earendil-works/pi-agent-core",
-				"@earendil-works/pi-storage-sqlite-node"
+				"@iris/pi-agent-core",
+				"@iris/pi-storage-sqlite-node"
 			],
 			"affectedSurfaces": [
 				"SessionStorage optional journal methods (appendEntryWithReceipt / readPendingCommitReceipts / ackCommitReceipt)",
@@ -170,7 +170,7 @@
 			"status": "proposed",
 			"genericRuntimeRationale": "A generic runtime that persists Session entries to JSONL needs a crash-recoverable commit journal with a real durability boundary: one appendFile call is not a transactional boundary, so the entry and receipt must be one verifiable frame (version + monotonic seq + sha256 checksum) written and fsynced before the append reports success. The backend publishes an explicit capability (supportsCrashRecoverableReceipts) that is true only when the filesystem provides fsync; callers requiring crash recovery (iris_agent production) fail closed otherwise. Torn tails (the only corruption an interrupted single-process append can produce) quarantine with a typed diagnostic and never fabricate an ACK; mid-file corruption fails closed; legacy pre-framing marker files remain readable.",
 			"affectedPackages": [
-				"@earendil-works/pi-agent-core"
+				"@iris/pi-agent-core"
 			],
 			"affectedSurfaces": [
 				"FileSystem.syncFile (optional fsync capability)",
@@ -191,7 +191,7 @@
 			},
 			"removalCondition": "earendil-works/pi provides an equivalent framed/transactional JSONL journal with a documented fsync boundary and iris_agent consumes the released package.",
 			"compatibilityRisk": "low: additive; the new frame format only affects newly written journal lines, legacy files remain readable, and capability-less filesystems degrade to the pre-journal publish-only path.",
-			"notes": "Part of iris_agent#51 (torn-write/crash-safety of the JSONL entry+receipt journal). Framed v1 journal: ONE line per commit (entry + pending receipt + monotonic seq + sha256 checksum), fsync via the optional FileSystem.syncFile before the append reports success; supportsCrashRecoverableReceipts is true only with BOTH syncFile AND truncateFile. Review-hardened across three independent review rounds: (1) missing-newline append guard; (2) load-time physical torn-tail repair via FileSystem.truncateFile at UTF-8 BYTE-accurate offsets (TextEncoder, CJK-safe — a UTF-16 misaligned truncate would destroy the preceding committed frame); (3) torn ack-marker tails and torn bare-entry tails (valid JSON, structurally incomplete) quarantine with typed diagnostics instead of throwing invalid_entry and bricking the session. Torn tails quarantine with a typed diagnostic (sticky, bounded per backend instance); mid-file corruption fails closed; legacy pre-framing marker files remain readable; marker-looking message text stays lossless. Status moves to carried after the accepted-runtime advancement audit passes."
+			"notes": "Part of iris_agent#51 (torn-write/crash-safety of the JSONL entry+receipt journal). Framed v1 journal: ONE line per commit (entry + pending receipt + monotonic seq + sha256 checksum), fsync via the optional FileSystem.syncFile before the append reports success; supportsCrashRecoverableReceipts is true only with BOTH syncFile AND truncateFile. Review-hardened across three independent review rounds: (1) missing-newline append guard; (2) load-time physical torn-tail repair via FileSystem.truncateFile at UTF-8 BYTE-accurate offsets (TextEncoder, CJK-safe \u2014 a UTF-16 misaligned truncate would destroy the preceding committed frame); (3) torn ack-marker tails and torn bare-entry tails (valid JSON, structurally incomplete) quarantine with typed diagnostics instead of throwing invalid_entry and bricking the session. Torn tails quarantine with a typed diagnostic (sticky, bounded per backend instance); mid-file corruption fails closed; legacy pre-framing marker files remain readable; marker-looking message text stays lossless. Status moves to carried after the accepted-runtime advancement audit passes."
 		},
 		{
 			"id": "PI-020-receipt-replay-integrity",
@@ -199,8 +199,8 @@
 			"status": "proposed",
 			"genericRuntimeRationale": "A generic runtime that replays commit receipts after a crash must replay in the durable append order (not timestamp order) and must never emit or acknowledge a receipt whose identity does not match its durable entry (session id, entry type/role, recomputed canonical content hash). Integrity failures are quarantined with a typed reason and remain visible for health diagnostics without blocking later receipts or other sessions.",
 			"affectedPackages": [
-				"@earendil-works/pi-agent-core",
-				"@earendil-works/pi-storage-sqlite-node"
+				"@iris/pi-agent-core",
+				"@iris/pi-storage-sqlite-node"
 			],
 			"affectedSurfaces": [
 				"SessionCommitReceipt.entrySeq (now authoritative, filled by every journal backend)",

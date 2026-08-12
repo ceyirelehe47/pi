@@ -1,10 +1,4 @@
-import {
-	createModels,
-	type FauxProviderHandle,
-	fauxAssistantMessage,
-	fauxProvider,
-	fauxToolCall,
-} from "@earendil-works/pi-ai";
+import { createModels, type FauxProviderHandle, fauxAssistantMessage, fauxProvider, fauxToolCall } from "@iris/pi-ai";
 import { describe, expect, it } from "vitest";
 import { AgentHarness, computeMessageContentHash } from "../../src/harness/agent-harness.ts";
 import type { MessageFinalizedEvent } from "../../src/harness/types.ts";

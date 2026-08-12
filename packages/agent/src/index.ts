@@ -1,5 +1,5 @@
 // Core Agent
-export { uuidv7 } from "@earendil-works/pi-ai";
+export { uuidv7 } from "@iris/pi-ai";
 export * from "./agent.ts";
 // Loop functions
 export * from "./agent-loop.ts";

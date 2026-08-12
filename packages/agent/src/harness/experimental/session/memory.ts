@@ -1,4 +1,4 @@
-import { uuidv7 } from "@earendil-works/pi-ai";
+import { uuidv7 } from "@iris/pi-ai";
 import { Session } from "./session.ts";
 import {
 	type BranchBounds,

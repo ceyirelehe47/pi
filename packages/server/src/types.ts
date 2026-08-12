@@ -7,7 +7,7 @@ import type {
 	SessionSummary,
 	ThinkingLevel,
 	TranscriptProgress,
-} from "@earendil-works/pi-protocol";
+} from "@iris/pi-protocol";
 import type { PiServerError } from "./errors.ts";
 import type { PiServerListener } from "./listener.ts";
 

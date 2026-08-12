@@ -1,5 +1,5 @@
 {
-	"name": "@earendil-works/pi-server",
+	"name": "@iris/pi-server",
 	"version": "0.83.0",
 	"description": "experimental server package for pi",
 	"type": "module",
@@ -54,9 +54,9 @@
 		"node": ">=22.19.0"
 	},
 	"dependencies": {
-		"@earendil-works/pi-ai": "^0.83.0",
-		"@earendil-works/pi-coding-agent": "^0.83.0",
-		"@earendil-works/pi-protocol": "^0.83.0"
+		"@iris/pi-ai": "^0.83.0",
+		"@iris/pi-coding-agent": "^0.83.0",
+		"@iris/pi-protocol": "^0.83.0"
 	},
 	"devDependencies": {
 		"shx": "0.4.0",

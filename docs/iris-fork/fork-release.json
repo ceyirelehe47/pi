@@ -1,0 +1,24 @@
+{
+  "forkReleaseVersion": "0.1.0-iris",
+  "packageScope": "@iris",
+  "packages": [
+    {
+      "name": "@iris/pi-agent-core",
+      "path": "packages/agent"
+    },
+    {
+      "name": "@iris/pi-ai",
+      "path": "packages/ai"
+    },
+    {
+      "name": "@iris/pi-storage-sqlite-node",
+      "path": "packages/storage/sqlite-node"
+    }
+  ],
+  "upstreamProvenance": {
+    "repository": "earendil-works/pi",
+    "baseCommit": "9795d602306ef68a97585909e8e79f92a389057b",
+    "verifiedAt": "2026-08-13"
+  },
+  "identityStatus": "independent_package_identity"
+}
