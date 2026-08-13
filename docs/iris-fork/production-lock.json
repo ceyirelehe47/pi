@@ -1,36 +1,36 @@
 {
-	"schemaVersion": 2,
-	"fork": {
-		"repository": "blueforst/pi",
-		"defaultBranch": "main",
-		"baselineCommit": "ab5f8d88ee1d400c0c8fb5c50ac10b2f4a4851d1"
-	},
-	"acceptedRuntime": {
-		"repository": "blueforst/pi",
-		"commit": "66a3ea14616a438f47d3121979c0581c22ea64bb",
-		"tree": "a6bdb67ab97a087e3e0285746462545780ea19b3",
-		"verifiedAt": "2026-08-07",
-		"equivalentCommit": "47f85a370a30a34a1e1c4533902f33818651d1b0",
-		"notes": "66a3ea14616a438f47d3121979c0581c22ea64bb is the accepted fork head carrying iris_agent#50: authoritative receipt replay order (receipt_seq = entry_seq in the same transaction; SQLite ORDER BY receipt_seq, JSONL frame seq, memory allocated seq) and recovery integrity validation with permanent quarantine of integrity-failed receipts (migration 005, typed reasons, readQuarantinedCommitReceipts) plus migration checksums. Built on the iris_agent#51 framed JSONL journal runtime 8327023a. Prior accepted identity 8327023a is an ancestor. acceptedRuntime is the single authoritative identity for the Pi runtime iris_agent is allowed to consume; floating main is never an accepted identity."
-	},
-	"upstream": {
-		"repository": "earendil-works/pi",
-		"baseCommit": "9795d602306ef68a97585909e8e79f92a389057b",
-		"verifiedAt": "2026-08-13"
-	},
-	"runtime": {
-		"node": ">=22.19.0",
-		"packageManager": "npm",
-		"lockfile": "package-lock.json"
-	},
-	"distribution": {
-		"packageIdentityStatus": "independent_package_identity",
-		"publishStatus": "ready_for_fork_release"
-	},
-	"dependencyDirection": "upstream_only",
-	"sync": {
-		"strategy": "manual_review_gate",
-		"lastVerifiedUpstreamCommit": "9795d602306ef68a97585909e8e79f92a389057b",
-		"lastVerifiedAt": "2026-08-13"
-	}
+  "schemaVersion": 2,
+  "fork": {
+    "repository": "blueforst/pi",
+    "defaultBranch": "main",
+    "baselineCommit": "ab5f8d88ee1d400c0c8fb5c50ac10b2f4a4851d1"
+  },
+  "acceptedRuntime": {
+    "repository": "blueforst/pi",
+    "commit": "66a3ea14616a438f47d3121979c0581c22ea64bb",
+    "tree": "a6bdb67ab97a087e3e0285746462545780ea19b3",
+    "verifiedAt": "2026-08-07",
+    "equivalentCommit": "47f85a370a30a34a1e1c4533902f33818651d1b0",
+    "notes": "66a3ea14616a438f47d3121979c0581c22ea64bb is the accepted fork head carrying iris_agent#50: authoritative receipt replay order (receipt_seq = entry_seq in the same transaction; SQLite ORDER BY receipt_seq, JSONL frame seq, memory allocated seq) and recovery integrity validation with permanent quarantine of integrity-failed receipts (migration 005, typed reasons, readQuarantinedCommitReceipts) plus migration checksums. Built on the iris_agent#51 framed JSONL journal runtime 8327023a. Prior accepted identity 8327023a is an ancestor. acceptedRuntime is the single authoritative identity for the Pi runtime iris_agent is allowed to consume; floating main is never an accepted identity."
+  },
+  "upstream": {
+    "repository": "earendil-works/pi",
+    "baseCommit": "581d75a89cea21e50d6a26df840352f94427f633",
+    "verifiedAt": "2026-08-13"
+  },
+  "runtime": {
+    "node": ">=22.19.0",
+    "packageManager": "npm",
+    "lockfile": "package-lock.json"
+  },
+  "distribution": {
+    "packageIdentityStatus": "independent_package_identity",
+    "publishStatus": "ready_for_fork_release"
+  },
+  "dependencyDirection": "upstream_only",
+  "sync": {
+    "strategy": "manual_review_gate",
+    "lastVerifiedUpstreamCommit": "581d75a89cea21e50d6a26df840352f94427f633",
+    "lastVerifiedAt": "2026-08-13"
+  }
 }

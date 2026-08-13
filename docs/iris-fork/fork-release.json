@@ -17,7 +17,7 @@
   ],
   "upstreamProvenance": {
     "repository": "earendil-works/pi",
-    "baseCommit": "9795d602306ef68a97585909e8e79f92a389057b",
+    "baseCommit": "581d75a89cea21e50d6a26df840352f94427f633",
     "verifiedAt": "2026-08-13"
   },
   "identityStatus": "independent_package_identity"
