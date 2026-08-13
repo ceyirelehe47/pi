@@ -39,7 +39,10 @@ export const UPSTREAM_REPOSITORY = "earendil-works/pi";
 export const PACKAGE_IDENTITY_STATUSES = ["inherits_upstream_package_names", "independent_identity", "independent_package_identity"];
 export const PUBLISH_STATUSES = ["not_published", "publish_forbidden", "ready_for_fork_release"];
 export const DEPENDENCY_DIRECTIONS = ["upstream_only"];
-export const SYNC_STRATEGIES = ["manual_review_gate"];
+export const SYNC_STRATEGIES = [
+	"manual_review_gate",
+	"manual_review_gate + mechanical freshness gate (scripts/check-upstream-freshness.mjs)",
+];
 export const PATCH_STATUSES = ["proposed", "carried", "upstreamed", "removable", "removed"];
 export const UPSTREAM_STATUSES = ["not_filed", "filed", "open", "merged", "rejected", "superseded"];
 
