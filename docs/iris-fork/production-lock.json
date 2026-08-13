@@ -29,8 +29,11 @@
   },
   "dependencyDirection": "upstream_only",
   "sync": {
-    "strategy": "manual_review_gate",
+    "strategy": "manual_review_gate + mechanical freshness gate (scripts/check-upstream-freshness.mjs)",
     "lastVerifiedUpstreamCommit": "581d75a89cea21e50d6a26df840352f94427f633",
-    "lastVerifiedAt": "2026-08-13"
+    "lastVerifiedAt": "2026-08-13",
+    "liveUpstreamAtAudit": "6f707eb36064e82af9c1320a7634f4dfad21049b",
+    "status": "stale_partial_sync",
+    "notes": "2026-08-13 audit: live earendil/main advanced 581d75a89 -> 6f707eb36 (3 coding-agent commits: 7d8c11d37, 46bb9a2c3, 6f707eb36). Owner decision: partial sync only — the 3 commits were cherry-picked into the fork (a144b78d7, 9f6d9de58, 62eff41a6) with package-name rewrites (@earendil-works/pi-* -> @iris/pi-*); 40 coding-agent tests pass, no new regressions vs baseline. The fork still lacks 266 upstream commits (agent-harness/session/storage refactors); full sync deferred to a dedicated round. Mechanical freshness gate remains STALE (correct, fail-closed) until full sync lands."
   }
 }
