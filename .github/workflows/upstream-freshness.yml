@@ -1,0 +1,21 @@
+name: upstream-freshness
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Hourly mechanical check that the fork's audited upstream SHA still
+    # matches the LIVE earendil-works/pi main.
+    - cron: "17 * * * *"
+
+jobs:
+  freshness:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Add upstream remote
+        run: |
+          git remote add earendil https://github.com/earendil-works/pi.git || git remote set-url earendil https://github.com/earendil-works/pi.git
+      - name: Mechanical upstream freshness gate
+        run: node scripts/check-upstream-freshness.mjs
